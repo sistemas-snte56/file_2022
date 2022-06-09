@@ -14,8 +14,7 @@
     $stmt->execute();
 ?>
 
-<select class="form-select" name="categoriasArchivos" id="categoriasArchivos">
-    <option selected>Selecciona una categoría</option>
+<select class="form-select" name="categoriasArchivos" id="categoriasArchivos">    
     <?php while($row = $stmt->fetch()) { $id_categoria = $row['id_categoria']; ?>
         <option value="<?php echo $id_categoria ?>"><?php echo $row["nombre"] ?></option>
     <?php } ?>

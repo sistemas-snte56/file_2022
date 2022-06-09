@@ -10,6 +10,14 @@ function agregarArchivosGestor(){
         processData : false,
         success:function(respuesta){
             console.log(respuesta);
+            respuesta = respuesta.trim();
+            if (respuesta == 1) {
+                $('#tablaGestorArchivos').load("gestor/tablaGestor.php");
+                swal(":D","Archivo agregado satisfactoriamente","success");
+            } else {
+                swal(":/","Error al cargar el archivo","error");
+                
+            }
         }
     });
 }
