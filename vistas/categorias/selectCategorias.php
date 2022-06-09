@@ -3,8 +3,8 @@
 
     require_once "../../clases/Conexion.php";
     
-    $conexion = new Conectar();
-    $conexion = $conexion -> conexion();
+    // $conexion = new Conectar();
+    // $conexion = $conexion -> conexion();
     
     $id_usuario = $_SESSION['id_usuario'];
 
@@ -14,9 +14,9 @@
     $stmt->execute();
 ?>
 
-<select class="form-select" aria-label="Default select example">
+<select class="form-select" name="categoriasArchivos" id="categoriasArchivos">
     <option selected>Selecciona una categoría</option>
-    <?php while($row = $stmt->fetch()) { ?>
-        <option value="<?php echo $row['id_categoria'] ?>"><?php echo $row["nombre"] ?></option>
+    <?php while($row = $stmt->fetch()) { $id_categoria = $row['id_categoria']; ?>
+        <option value="<?php echo $id_categoria ?>"><?php echo $row["nombre"] ?></option>
     <?php } ?>
 </select>

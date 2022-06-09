@@ -16,7 +16,7 @@
         <div class="row p-3 mb-4 ">
             <div class="col-sm-4">
                 <!-- Button  -->
-                <span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarCategoria">
+                <span class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarArchivos">
                     <span class="fas fa-plus-circle"></span> Agregar archivos
                 </span>
             </div>
@@ -39,31 +39,63 @@
 
 
     <!-- Modal para Agregar archivos -->
-    <div class="modal fade" id="modalAgregarCategoria" tabindex="-1" aria-labelledby="modalAgregarArchivoLabel" aria-hidden="true">
+    <!--
+        <div class="modal fade" id="modalAgregarCategoria33333" tabindex="-1" aria-labelledby="modalAgregarArchivoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAgregarArchivoLabel">Agregar Archivo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="frmAgregarArchivos" enctype="multipart/form-data" method="post" >
+                            <div class="mb-3">
+                                <div id="cargarCategoria"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="nombreArchivo" class="col-form-label">Nombre de Archivo</label>
+                                <input type="file" class="form-control" id="nombreArchivo" name="nombreArchivo">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnGuardarArchivo">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+        
+
+
+
+
+
+    <!-- Modal para agregar archivos -->
+
+    <div class="modal fade" id="modalAgregarArchivos" tabindex="-1" aria-labelledby="modalAgregarArchivosLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalAgregarArchivoLabel">Agregar Archivo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form id="frmAgregarArchivos" enctype="multipart/form-data" method="post" >
-                        <div class="mb-3">
-                            <div id="cargarCategoria"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="nombreArchivo" class="col-form-label">Nombre de Archivo</label>
-                            <input type="file" class="form-control" id="nombreArchivo" name="nombreArchivo">
-                        </div>
-                    </form>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnGuardarArchivo">Guardar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgregarArchivosLabel">Archivos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frmArchivos" enctype="multipart/form-data" action="#" method="post">
+                    <label for="">Categorías</label>
+                    <div id="categoriasLoad"></div>
+                    <label for="">Selecciona archivos</label>
+                    <input type="file" name="archivos" id="archivos" class="form-control">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardarArchivos">Guardar</button>
+            </div>
             </div>
         </div>
     </div>
@@ -78,16 +110,13 @@
 <?php include "footer.php" ?>
 
 
-
+<script src="../js/gestor.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#tablaGestorArchivos').load("gestor/tablaGestor.php");
-        $('#cargarCategoria').load("categorias/selectCategoria.php");
-        $('#btnGuardarArchivo').click(function(){
-            var formData = new FormData(document.getElementById('frmArchivos'));
-            $.ajax({
-
-            });
+        $('#categoriasLoad').load("categorias/selectCategorias.php");
+        $('#btnGuardarArchivos').click(function(){
+            agregarArchivosGestor();
         });
     });
 
