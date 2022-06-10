@@ -37,44 +37,6 @@
     </div>
 
 
-
-    <!-- Modal para Agregar archivos -->
-    <!--
-        <div class="modal fade" id="modalAgregarCategoria33333" tabindex="-1" aria-labelledby="modalAgregarArchivoLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalAgregarArchivoLabel">Agregar Archivo</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <form id="frmAgregarArchivos" enctype="multipart/form-data" method="post" >
-                            <div class="mb-3">
-                                <div id="cargarCategoria"></div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="nombreArchivo" class="col-form-label">Nombre de Archivo</label>
-                                <input type="file" class="form-control" id="nombreArchivo" name="nombreArchivo">
-                            </div>
-                        </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btnGuardarArchivo">Guardar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
-        
-
-
-
-
-
     <!-- Modal para agregar archivos -->
 
     <div class="modal fade" id="modalAgregarArchivos" tabindex="-1" aria-labelledby="modalAgregarArchivosLabel" aria-hidden="true">
@@ -99,10 +61,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
