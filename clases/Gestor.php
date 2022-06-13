@@ -50,6 +50,85 @@
             };             
 
         }
+
+        public function obtenerRutaArchivo($id_archivo) {
+            
+            $tabla = "tbl_archivos";
+            // $resultado = [];
+            $resultado = array();
+            
+            $stmt = Conectar::conexion()->prepare("SELECT * FROM tbl_archivos WHERE id_archivo = '$id_archivo'");
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+
+            while ( $row = $stmt->fetch() ) {
+                $resultado['nombre'] = $row['nombre'];
+                $resultado['tipo'] = $row['tipo'];
+            }
+
+            return self::tipoArchivo($resultado['nombre'], $resultado['tipo']);
+
+
+
+            /*
+                //var_dump($resultado);
+
+                // $tabla = "tbl_archivos";
+
+                // $stmt = Conectar::conexion()->prepare("SELECT nombre FROM $tabla WHERE id_archivo = :id_archivo" );
+                // $stmt->bindParam(":id_archivo", $id_archivo, PDO::PARAM_INT);
+                // $stmt->execute();
+
+                // //$resultado = $stmt->fetchAll();
+
+                // $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN,0);
+                // var_dump($resultado);
+
+
+                // return $resultado['tipo'];
+            */
+
+
+
+        }
+
+        public function tipoArchivo($nombre, $extension) {
+            $id_usuario = $_SESSION['id_usuario'];
+            $ruta = "../archivos/" . $id_usuario . "/" . $nombre ;
+            
+            switch ($extension) {
+                case 'png': 
+                    return '<img src="'.$ruta.'">';
+                    break; 
+                case 'jpg': 
+                    #code 
+                    break; 
+                case 'jpeg': 
+                    #code 
+                    break; 
+                case 'pdf': 
+                    #code 
+                    break; 
+                case 'mov': 
+                    #code 
+                    break; 
+                case 'mp3': 
+                    #code 
+                    break; 
+                case 'mp4': 
+                    #code 
+                    break; 
+                case 'zip': 
+                    #code 
+                    break; 
+                case 'rar': 
+                    #code 
+                    break; 
+                default:
+                    # code...
+                    break;
+            }
+        }
     }
 
 

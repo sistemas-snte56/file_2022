@@ -16,7 +16,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Tipo de archivo</th>
+                            <th scope="col">Extensión de archivo</th>
                             <th scope="col">Descargar</th>
                             <th scope="col">Visualizar</th>
                             <th scope="col">Eliminar</th>
@@ -24,6 +24,12 @@
                     </thead>
                     <tbody>
                         <?php
+
+                            /**
+                             * Arreglo de extensiones validas
+                             */
+                            $extensionesValidas = array('png','jpg','jpeg','pdf','mov','mp3','mp4','zip','rar');
+                            
 
                             //$stmt = Conectar::conexion()->prepare("SELECT * FROM $tabla WHERE id_usuario = '$id_usuario'");
                             //$stmt = Conectar::conexion()->prepare("SELECT * from tbl_archivos as archivos inner join tbl_usuarios as usuario on archivos.id_usuario = usuario.id_usuario inner join tbl_categorias as categorias on archivos.id_categoria = categorias.id_categoria and archivos.id_usuario = '$id_usuario';");
@@ -58,6 +64,7 @@
                                 $id_archivo = $row['id_archivo'];
                                 $rutaDescarga = "../archivos/".$id_usuario."/".$row['nombre'];
                                 $rutaNombre = $row['nombre'];
+                                $tipoArchivo = $row['tipo'];
                             
 
 
@@ -66,7 +73,22 @@
                             <td><?php echo $row['nombre'] ?></td>
                             <td><?php echo $row['tipo'] ?></td>
                             <td> <a href="<?php echo  $rutaDescarga ?>" download="<?php $rutaNombre ?>"> <span class="fas fa-download"></span></a> </td>
-                            <td>#</td>
+                            <td>
+                                <?php
+
+                                    for ($i=0; $i < count($extensionesValidas); $i++) { 
+                                        if ($extensionesValidas[$i] == $tipoArchivo) {
+                                ?>
+                                            <span class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#visualizarArchivo" onclick="obtenerArchivoPorId(<?php echo $id_archivo ?>)">
+                                                <span class="fas fa-eye"></span>
+                                            </span>
+                                <?php
+                                            
+                                        }
+                                    }
+
+                                ?>
+                            </td>
                             <td>
                                 <span class="btn btn-danger- btn-sm"   onclick="elimiarArchivo(<?php echo $id_archivo ?>)" > <span class="fas fa-trash-alt"></span> </span>
                             </td>

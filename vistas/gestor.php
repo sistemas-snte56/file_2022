@@ -63,6 +63,23 @@
     </div>
 
 
+    <!-- Modal Visualizar Archivos -->
+    <div class="modal fade" id="visualizarArchivo" tabindex="-1" aria-labelledby="visualizarArchivoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visualizarArchivoLabel">Archivo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>  
+                <div class="modal-body">
+                    <div id="archivoObtenido"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <?php include "footer.php" ?>

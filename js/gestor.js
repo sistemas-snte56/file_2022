@@ -27,8 +27,6 @@ function elimiarArchivo(idArchivo) {
 
     idArchivo = parseInt(idArchivo);
 
-    
-
     if (idArchivo < 1) {
         swal(":/","No hay archivo que eliminar...!!!","danger");
     } else {
@@ -61,34 +59,15 @@ function elimiarArchivo(idArchivo) {
         });
     }
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function obtenerArchivoPorId(idArchivo) {
+    $.ajax({
+        type : "POST",
+        data : "idArchivo=" + idArchivo,
+        url : "../procesos/gestor/obtenerArchivo.php",
+        success : function (respuesta) {
+            $('#archivoObtenido').html(respuesta);
+        }
+    });
 }
