@@ -98,7 +98,7 @@
             
             switch ($extension) {
                 case 'png': 
-                    return '<img src="'.$ruta.'">';
+                    return '<img src="'.$ruta.'" width="50%" >';
                     break; 
                 case 'jpg': 
                     #code 
@@ -107,7 +107,8 @@
                     #code 
                     break; 
                 case 'pdf': 
-                    #code 
+                    //return '<embebed src="'.$ruta.' #toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px"';
+                    return '<embed src="'.$ruta.'#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />';
                     break; 
                 case 'mov': 
                     #code 
