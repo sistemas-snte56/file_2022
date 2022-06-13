@@ -12,7 +12,7 @@
     <row class="justify-content-center">
         <div class="col-auto mb-12">
             <h3>Hola</h3>    
-            esta es una página principal
+            <p>Página de inicio de rama principal</p>
         </div>
     </row>
 </div>
