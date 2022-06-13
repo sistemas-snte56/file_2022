@@ -13,6 +13,8 @@
         <div class="col-auto mb-12">
             <h3>Hola</h3>    
             esta es una página principal
+
+            <p>Parrafo creado desde el branch 2</p>
         </div>
     </row>
 </div>
